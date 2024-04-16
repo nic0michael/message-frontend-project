@@ -6,59 +6,72 @@ import { Template } from '../../interfaces/template';
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html',
-  styleUrls: ['./template.component.css'] 
+  styleUrls: ['./template.component.css']   
   // styleUrl: './template.component.css'
 })
 export class TemplateComponent implements OnInit {
 
   constructor(private templateService: TemplateService) { 
-    console.log('TemplateComponent initialized');
+    // console.log('TemplateComponent initialized');
   }
 
   templates: Template[] = []; 
   templateOwnerNames: string[] = [];
+  templateNames: string[] = [];
+  cmTemplateOwnerName: string='';
+  
 
+  
   ngOnInit(): void {
-    
-
-    this.fetchTemplates('DELL');
-    this.fetchTemplateOwnerNames();
+    this.fetchTemplateOwnerNames(); 
+    this.fetchTemplates();
     
     template: this.getTemplateByCmTemplateName('exampleTemplateName');
-    this.deleteTemplateByCmTemplateName('exampleTemplateName');
+    // this.deleteTemplateByCmTemplateName('exampleTemplateName');
 
-    this.createTemplate({ 
-      id:-1,
-      creationDate: '2024-03-25 10:00:00.000000',
-      changedBy: 'Nico', 
-      cmTemplateName: 'IBM_BlackFriday2024',
-      cmTemplateCategory: 'Category1',
-      cmTemplateContent: 'Template Content',
-      cmCampaignName: 'Campaign1',
-      cmTemplateOwnerName: 'IBM'
-    });
+    // this.createTemplate({ 
+    //   id:-1,
+    //   creationDate: '2024-03-25 10:00:00.000000',
+    //   changedBy: 'Nico', 
+    //   cmTemplateName: 'IBM_BlackFriday2024',
+    //   cmTemplateCategory: 'Category1',
+    //   cmTemplateContent: 'Template Content',
+    //   cmCampaignName: 'Campaign1',
+    //   cmTemplateOwnerName: 'IBM'
+    // });
+  
+    // this.updateTemplate({ 
+    //   id: 1,       
+    //   creationDate: '2024-03-25 10:00:00.000000',
+    //   changedBy: 'Nico', 
+    //   cmTemplateName: 'DELL_BlackFriday2024',
+    //   cmTemplateCategory: 'Category2',
+    //   cmTemplateContent: 'Template Content',
+    //   cmCampaignName: 'Campaign2',
+    //   cmTemplateOwnerName: 'DELL'
+    // });    
+
+  }
 
 
-    this.updateTemplate({ 
-      id: 1,       
-      creationDate: '2024-03-25 10:00:00.000000',
-      changedBy: 'Nico', 
-      cmTemplateName: 'DELL_BlackFriday2024',
-      cmTemplateCategory: 'Category2',
-      cmTemplateContent: 'Template Content',
-      cmCampaignName: 'Campaign2',
-      cmTemplateOwnerName: 'DELL'
-    });    
+  onOwnerTemplateNameSelect(): void {
+    if (this.cmTemplateOwnerName) {
+      this.fetchAllTemplateNamesByTemplateOwner(this.cmTemplateOwnerName); // Call the new method
+    }
+  }
 
- }
-
+  onOwnerTemplateSelect(): void {
+    if (this.cmTemplateOwnerName) {
+      this.getAllTemplatesByTemplateOwner(this.cmTemplateOwnerName); // Call the new method
+    }
+  }
 
   /**  
    * Method to fetch templates by template owner name
    * 
    */
-  fetchTemplates(cmTemplateOwnerName: string): void {
-    this.templateService.getAllTemplatesByTemplateOwner(cmTemplateOwnerName)
+  fetchTemplates(): void {
+    this.templateService.getAllTemplatesByTemplateOwner(this.cmTemplateOwnerName)
       .subscribe({
         next: (templates: Template[]) => {
           this.templates = templates;
@@ -70,6 +83,23 @@ export class TemplateComponent implements OnInit {
       });
   }
 
+
+  /**  
+   * Method to fetch templates by template owner name
+   * 
+   */
+  getAllTemplatesByTemplateOwner(cmTemplateOwnerName: string): void {
+    this.templateService.getAllTemplatesByTemplateOwner(cmTemplateOwnerName)
+      .subscribe({
+        next: (templates: Template[]) => {
+          this.templates = templates;
+          console.log('All templates:', this.templates);
+        },
+        error: (error) => {
+          console.error('Error fetching templates:', error);
+        }
+      });
+  }
 
   /**
    * Method to fetch all template owner names
@@ -88,13 +118,25 @@ export class TemplateComponent implements OnInit {
   }
 
 
-
-
-  getAllTemplatesByTemplateOwner(cmTemplateOwnerName: string): void {
-    this.templateService.getAllTemplatesByTemplateOwner(cmTemplateOwnerName)
+  fetchAllTemplateNamesByTemplateOwner(cmTemplateOwnerName: string): void {
+    this.templateService.getAllTemplatesNamesByTemplateOwner(cmTemplateOwnerName)
       .subscribe({
-        next: (templates: Template[]) => {
-          this.templates = templates;
+        next: (templateNames: string[]) => {
+          this.templateNames = templateNames;
+          console.log('All templateNames:', this.templateNames);
+        },
+        error: (error) => {
+          console.error('Error fetching templates:', error);
+        }
+      });
+      
+  }
+
+  getAllTemplateNamesByTemplateOwner(): void {
+    this.templateService.getAllTemplatesNamesByTemplateOwner(this.cmTemplateOwnerName)
+      .subscribe({
+        next: (templateNames: string[]) => {
+          this.templateNames = templateNames;
           console.log('All templates:', this.templates);
         },
         error: (error) => {
@@ -103,6 +145,7 @@ export class TemplateComponent implements OnInit {
       });
       
   }
+
 
   getAllCmTemplateOwnerNames(): void {
     this.templateService.getAllCmTemplateOwnerNames()
@@ -165,7 +208,7 @@ export class TemplateComponent implements OnInit {
       });
   }
 
-
+  
 
 
 }

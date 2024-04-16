@@ -11,23 +11,7 @@ export class AppComponent {
   templateOwnerNames: string[] = []; 
 
   constructor(){
-    console.log('AppComponent initialized');
+    // console.log('AppComponent initialized');
   }
-
-  // constructor(private templateService: TemplateService){} // this kills the page
-
-  // ngOnInit(): void {
-  //   console.log('AppComponent : ngOnInit method called');
-  //   this.fetchTemplateOwnerNames();
-  // }
-
-
-  /**
-   * Method is used to fetch all template owner names
-   */
-  // fetchTemplateOwnerNames(): void {
-  //   console.log('AppComponent : fetchTemplateOwnerNames method called');
-  //   this.templateService.getAllCmTemplateOwnerNames(); 
-  // }
 
 }

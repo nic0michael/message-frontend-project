@@ -7,6 +7,7 @@ import { TemplateComponent } from './components/template/template.component';
 import { SampledataComponent } from './components/sampledata/sampledata.component';
 import { DisplpageComponent } from './components/displpage/displpage.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

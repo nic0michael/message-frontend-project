@@ -1,3 +1,94 @@
-<p>template works!</p>
-<button (click)="fetchTemplateOwnerNames()">Fetch Template Owner Names</button>
+<!-- <p>template works!</p> -->
+<!-- Display fetched template owner names -->
+<div>
+  <table>
+    <tr>
+      <td>
+        <h2>Template Owner Names:</h2>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table style="border-collapse: collapse; border: 1px solid black;" width="100%">
+          <tr style="border-bottom: 3px solid black;">
+            <td>
+              <button (click)="fetchTemplateOwnerNames()">Fetch Template Owner Names</button>
+            </td>
+          </tr>
+          <tr style="border-bottom: 3px solid black;">
+            <td>
+              <ul>
+                <li *ngFor="let ownerName of templateOwnerNames">{{ ownerName }}</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>    
+  </table>
+</div>
 
+
+<!-- Display fetched template names -->
+<div>
+  <table>
+    <tr>
+      <td>
+        <h2>Template Names:</h2>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table style="border-collapse: collapse; border: 1px solid black;" width="100%">
+          <tr style="border-bottom: 3px solid black;">
+            <td>
+              <select [(ngModel)]="cmTemplateOwnerName" (change)="onOwnerTemplateNameSelect()">
+                <option value="">Please select Template Owner here</option>
+                <option value="MASTER">MASTER</option>
+                <option value="DELL">DELL</option>
+                <option value="IBM">IBM</option>
+              </select>
+            </td>
+          </tr>
+          <tr style="border-bottom: 3px solid black;">
+            <td>
+              <p *ngFor="let templateName of templateNames">{{ templateName }}</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<!-- Display fetched template data -->
+<div>
+  <table>
+    <tr>
+      <td>
+        <h2>Template Data:</h2>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table style="border-collapse: collapse; border: 1px solid black;" width="100%">
+          <tr style="border-bottom: 3px solid black;">
+            <td>
+              <select [(ngModel)]="cmTemplateOwnerName" (change)="onOwnerTemplateSelect()">
+                <option value="">Please select Template Owner here</option>
+                <option value="MASTER">MASTER</option>
+                <option value="DELL">DELL</option>
+                <option value="IBM">IBM</option>
+              </select>
+            </td>
+          </tr>
+          <tr style="border-bottom: 3px solid black;">
+            <td>
+              <p *ngFor="let template of templates">{{ template.cmTemplateContent }}</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>

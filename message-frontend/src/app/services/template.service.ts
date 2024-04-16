@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class TemplateService {
 
   constructor(private http: HttpClient) {
-    console.log('TemplateService initialized');
+    // console.log('TemplateService initialized');
    }
 
   // templates: Template[] = []; 
@@ -21,8 +21,8 @@ export class TemplateService {
    * @param cmTemplateOwnerName 
    * @returns 
    */
-  getAllTemplatesByTemplateOwner(cmTemplateOwnerName: string): Observable<Template[]> {
-    return this.http.get<Template[]>(`http://localhost:8080/message-api/templates/listCmTemplateNames/${cmTemplateOwnerName}`);
+  getAllTemplatesNamesByTemplateOwner(cmTemplateOwnerName: string): Observable<string[]> {
+    return this.http.get<string[]>(`http://localhost:8080/message-api/templates/listCmTemplateNames/${cmTemplateOwnerName}`)
   }
 
    /**
@@ -31,6 +31,17 @@ export class TemplateService {
   getAllCmTemplateOwnerNames(): Observable<string[]> {
     console.log('TemplateService : fetchTemplateOwnerNames method called');
     return this.http.get<string[]>('http://localhost:8080/message-api/templates/cmTemplateOwnerNames');
+  }
+
+  /**
+   * 
+   * This calls http://localhost:8080/message-api/templates/listCmTemplatesBy/${cmTemplateOwnerName}
+   *    * 
+   * @param cmTemplateOwnerName 
+   * @returns 
+   */
+  getAllTemplatesByTemplateOwner(cmTemplateOwnerName: string): Observable<Template[]> {
+    return this.http.get<Template[]>(`http://localhost:8080/message-api/templates/listCmTemplatesBy/${cmTemplateOwnerName}`)
   }
 
   /**

@@ -16,6 +16,6 @@ import { TemplateComponent } from '../../components/template/template.component'
 })
 export class TemplateModule { 
   constructor() {
-    console.log('TemplateModule initialized');
+    // console.log('TemplateModule initialized');
   }
 }
