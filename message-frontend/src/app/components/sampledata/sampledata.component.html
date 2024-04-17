@@ -1,1 +1,28 @@
 <p>sampledata works!</p>
+<!-- Display fetched template names -->
+<div>
+    <h2>Template Names:</h2>
+    <select [(ngModel)]="cmTemplateOwnerName" (change)="getAllSampledataByTemplateOwner(cmTemplateOwnerName)">
+      <option value="">Please select Template Owner here</option>
+      <option value="MASTER">MASTER</option>
+      <option value="DELL">DELL</option>
+      <option value="IBM">IBM</option>
+    </select>
+    <ul>
+      <li *ngFor="let sampledata of sampledataArray">{{ sampledata.cmTemplateName }}</li>
+    </ul>
+  </div>
+  
+  <!-- Display fetched template data -->
+  <div>
+    <h2>Template Data:</h2>
+    <select [(ngModel)]="templateName" (change)="getSampledataByCmTemplateName(templateName)">
+      <option value="">Please select Template name here</option>
+      <option value="IBM_BlackFriday2024">IBM_BlackFriday2024</option>
+      <option value="DELL_BlackFriday2024">DELL_BlackFriday2024</option>
+    </select>
+    <div *ngIf="sampledata">
+      <p>{{ sampledata.cmMapPayloadJson }}</p>
+    </div>
+  </div>
+  

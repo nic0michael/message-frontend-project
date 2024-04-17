@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TemplateService } from '../../services/template.service';
-// import { TemplateService } from './template.service';
 import { Template } from '../../interfaces/template';
 
 @Component({
@@ -27,7 +26,9 @@ export class TemplateComponent implements OnInit {
     this.fetchTemplates();
     
     template: this.getTemplateByCmTemplateName('exampleTemplateName');
+
     // this.deleteTemplateByCmTemplateName('exampleTemplateName');
+
 
     // this.createTemplate({ 
     //   id:-1,
@@ -40,6 +41,7 @@ export class TemplateComponent implements OnInit {
     //   cmTemplateOwnerName: 'IBM'
     // });
   
+
     // this.updateTemplate({ 
     //   id: 1,       
     //   creationDate: '2024-03-25 10:00:00.000000',
@@ -51,6 +53,7 @@ export class TemplateComponent implements OnInit {
     //   cmTemplateOwnerName: 'DELL'
     // });    
 
+    
   }
 
 
