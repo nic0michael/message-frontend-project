@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TemplateService } from './services/template.service';
+// import { TemplateService } from './services/template.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,7 @@ export class AppComponent {
   templateOwnerNames: string[] = []; 
 
   constructor(){
-    // console.log('AppComponent initialized');
+    console.log('AppComponent initialized');
   }
 
 }

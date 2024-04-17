@@ -29,6 +29,7 @@ export class SampledataService {
    * @returns 
    */
   getSampledataByCmTemplateName(cmTemplateName: string): Observable<Sampledata> {
+    console.log('getSampledataByCmTemplateName called');
     return this.http.get<Sampledata>(`localhost:8080/message-api/sampledata/${cmTemplateName}`);
   }
 

@@ -27,19 +27,20 @@ export class SampledataComponent {
 
   onSampledataTemplateNameSelect(): void {
     if (this.templateName) {
-      this.getSampledataByCmTemplateName(this.templateName); // Call the new method
+      this.getSampledataByCmTemplateName(this.templateName);  
     }
   }
 
 
   onSampledataTemplateOwnerNameSelect(): void {
     if (this.cmTemplateOwnerName) {
-      this.getAllSampledataByTemplateOwner(this.cmTemplateOwnerName); // Call the new method
+      this.getAllSampledataByTemplateOwner(this.cmTemplateOwnerName);  
     }
   }
 
 
   getAllSampledataByTemplateOwner(cmTemplateOwnerName: string): void {
+    console.log('getAllSampledataByTemplateOwner called');
     this.sampledataService.getAllSampledataByTemplateOwner(cmTemplateOwnerName)
     .subscribe({
       next: (sampledataArray: Sampledata[]) => {
@@ -55,6 +56,7 @@ export class SampledataComponent {
 
 
   getSampledataByCmTemplateName(cmTemplateName: string): void {
+    console.log('getSampledataByCmTemplateName called');
     this.sampledataService.getSampledataByCmTemplateName(cmTemplateName)
       .subscribe({
         next: (sampledata: Sampledata) => {
