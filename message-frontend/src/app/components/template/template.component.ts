@@ -69,6 +69,18 @@ export class TemplateComponent implements OnInit {
     }
   }
 
+  saveTemplate(template: Template): void {
+    // this.templateService.createTemplate(template)
+    //   .subscribe({
+    //     next: (createdTemplate: Template) => {
+    //       console.log('Template created successfully:', createdTemplate);
+    //     },
+    //     error: (error) => {
+    //       console.error('Error creating template:', error);
+    //     }
+    //   });
+  }
+
   /**  
    * Method to fetch templates by template owner name
    * 

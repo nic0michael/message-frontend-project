@@ -84,7 +84,15 @@
           </tr>
           <tr style="border-bottom: 3px solid black;">
             <td>
-              <p *ngFor="let template of templates">{{ template.cmTemplateContent }}</p>
+              <!-- <p *ngFor="let template of templates">{{ template.cmTemplateContent }}</p> -->
+
+              <ng-container *ngFor="let template of templates">
+                <form (ngSubmit)="saveTemplate(template)">
+                  <textarea rows="200" cols="100" [(ngModel)]="template.cmTemplateContent" name="templateContent" style="height: 300px;"></textarea>
+                  <button type="submit">Save</button>
+                </form>
+              </ng-container>
+
             </td>
           </tr>
         </table>
