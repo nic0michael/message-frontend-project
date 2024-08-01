@@ -74,24 +74,26 @@
         <table style="border-collapse: collapse; border: 1px solid black;" width="100%">
           <tr style="border-bottom: 3px solid black;">
             <td>
+
               <select [(ngModel)]="cmTemplateOwnerName" (change)="onOwnerTemplateSelect()">
                 <option value="">Please select Template Owner here</option>
                 <option value="MASTER">MASTER</option>
-                <option value="DELL">DELL</option>
-                <option value="IBM">IBM</option>
+                <option value="DELL">DELL_BlackFriday2024</option>
+                <option value="IBM">IBM_BlackFriday2024</option>
               </select>
             </td>
           </tr>
           <tr style="border-bottom: 3px solid black;">
             <td>
-              <!-- <p *ngFor="let template of templates">{{ template.cmTemplateContent }}</p> -->
-
               <ng-container *ngFor="let template of templates">
                 <form (ngSubmit)="saveTemplate(template)">
-                  <textarea rows="200" cols="100" [(ngModel)]="template.cmTemplateContent" name="templateContent" style="height: 300px;"></textarea>
+                  <textarea rows="400" cols="100" [(ngModel)]="template.cmTemplateContent" name="templateContent" style="height: 300px;"></textarea>
+                  <strong>Template Name : </strong>
+                  <input type="text" [(ngModel)]="selectedTemplateOwner"> &nbsp;&nbsp; &nbsp;&nbsp;
                   <button type="submit">Save</button>
                 </form>
               </ng-container>
+            
 
             </td>
           </tr>

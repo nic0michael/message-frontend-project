@@ -1,4 +1,4 @@
-## Create a project to work with quarkus-crud-app
+## Create a project to wor with quarkus-crud-app
 run this command to open main folder:
 ```
 cd /opt/projects/LoyaltyPlusProjects/message-frontend-project
@@ -27,11 +27,6 @@ ng serve
 Open browser : \
 [http://localhost:4200/](http://localhost:4200/)
 
-Press these keys to disply the console in Chrome Browser: 
-```
-Ctrl Shift I
-```
-
 ## Generating Components
 Run these commands :
 
@@ -54,11 +49,8 @@ Run these commands :
 ```
 ng generate interface interfaces/template
 ng generate interface interfaces/sampledata
-ng generate interface interfacesdisplpage
+ng generate interface interfaces/displpage
 ```
-
-Run these commands :
-```interfaces/
 /message-api/templates/cmTemplateOwnerNames
 
 ## Build and test
@@ -131,15 +123,3 @@ change to
   <li *ngFor="let ownerName of templateOwnerNames">{{ ownerName }}</li>
 </ul>
 ```
-
-## Generating Modules
-
-Run these commands :
-
-```
-ng generate module modules/template --routing
-ng generate module modules/sampledata --routing
-ng generate module modules/displpage --routing
-
-```
-

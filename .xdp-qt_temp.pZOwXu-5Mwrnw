@@ -27,11 +27,6 @@ ng serve
 Open browser : \
 [http://localhost:4200/](http://localhost:4200/)
 
-Press these keys to disply the console in Chrome Browser: 
-```
-Ctrl Shift I
-```
-
 ## Generating Components
 Run these commands :
 
@@ -52,9 +47,9 @@ ng generate service services/displpage
 ## Generating Interfaces
 Run these commands :
 ```
-ng generate interface interfaces/template
-ng generate interface interfaces/sampledata
-ng generate interface interfacesdisplpage
+ng generate interface templ/templ-edit-iface
+ng generate interface sampl/sampl-data-iface
+ng generate interface mesg/mesg-disp-iface
 ```
 
 Run these commands :

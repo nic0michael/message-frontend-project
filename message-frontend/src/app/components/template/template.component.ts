@@ -16,8 +16,10 @@ export class TemplateComponent implements OnInit {
 
   templates: Template[] = []; 
   templateOwnerNames: string[] = [];
+  selectedTemplateOwner: string = '';
   templateNames: string[] = [];
   cmTemplateOwnerName: string='';
+  
   
 
   
@@ -55,6 +57,7 @@ export class TemplateComponent implements OnInit {
 
     
   }
+
 
 
   onOwnerTemplateNameSelect(): void {
